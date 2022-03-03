@@ -67,3 +67,5 @@ extra:
 # Page tree
 nav:
   - "Home": "index.md"
+  - "Security":
+      - "SSL": "security/ssl.md"
