@@ -2,7 +2,9 @@
 
 ## Show certificate for a host
 
-`openssl s_client -showcerts -connect www.domain.com:443`
+```
+openssl s_client -showcerts -connect www.domain.com:443
+```
 
 Output:
 ```
@@ -38,7 +40,9 @@ Server public key is 1024 bit
 
 ## Check the expiration date of an SSL certificate
 
-`openssl s_client -servername <NAME> -connect <HOST:PORT> 2>/dev/null | openssl x509 -noout -dates`
+```
+openssl s_client -servername <NAME> -connect <HOST:PORT> 2>/dev/null | openssl x509 -noout -dates
+```
 
 Output:
 ```
@@ -53,19 +57,27 @@ notAfter=Sep 22 23:59:59 2022 GMT
 
 But what if you want to connect to something other than a bog standard webserver on port 443? Well, if you need to use starttls that is also available. As of OpenSSL 0.9.8 you can choose from smtp, pop3, imap, and ftp as starttls options.
 
-`openssl s_client -showcerts -starttls imap -connect mail.domain.com:139`
+```
+openssl s_client -showcerts -starttls imap -connect mail.domain.com:139
+```
 
 If you need to check using a specific SSL version (perhaps to verify if that method is available) you can do that as well. -ssl2, -ssl3, -tls1, and -dtls1 are all choices here.2
 
-`openssl s_client -showcerts -ssl2 -connect www.domain.com:443`
+```
+openssl s_client -showcerts -ssl2 -connect www.domain.com:443
+```
 
 You can also present a client certificate if you are attempting to debug issues with a connection that requires one.3
 
-`openssl s_client -showcerts -cert cert.cer -key cert.key -connect www.domain.com:443`
+```
+openssl s_client -showcerts -cert cert.cer -key cert.key -connect www.domain.com:443
+```
 
 And for those who really enjoy playing with SSL handshakes, you can even specify acceptable ciphers.4
 
-`openssl s_client -showcerts -cipher DHE-RSA-AES256-SHA -connect www.domain.com:443`
+```
+openssl s_client -showcerts -cipher DHE-RSA-AES256-SHA -connect www.domain.com:443
+```
 
 *([Source](https://langui.sh/2009/03/14/checking-a-remote-certificate-chain-with-openssl/))*
 
