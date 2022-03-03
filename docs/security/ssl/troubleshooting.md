@@ -1,10 +1,10 @@
 # SSL Troubleshooting
 
-## Show certificate
+## Show certificate for a host
 
 `openssl s_client -showcerts -connect www.domain.com:443`
 
-Ergebnis:
+Output:
 ```
 CONNECTED(00000003)
 --snip--
@@ -34,20 +34,22 @@ Server public key is 1024 bit
 --snip--
 ```
 
+*([Source](https://langui.sh/2009/03/14/checking-a-remote-certificate-chain-with-openssl/))*
+
 ## Check the expiration date of an SSL certificate
 
 `openssl s_client -servername <NAME> -connect <HOST:PORT> 2>/dev/null | openssl x509 -noout -dates`
 
-Ergebnis:
-
+Output:
 ```
 $ echo q | openssl s_client -showcerts -connect control.akamai.com:443 -servername control.akamai.com 2>/dev/null | openssl x509 -noout -dates
 notBefore=Sep 23 00:00:00 2021 GMT
 notAfter=Sep 22 23:59:59 2022 GMT
 ```
 
+*([Source](https://learn.akamai.com/en-us/webhelp/enterprise-application-access/enterprise-application-access/GUID-9D88336D-2733-4325-913C-916403E03D48.html))*
 
-## Mehr Snippets
+## Some snippets
 
 But what if you want to connect to something other than a bog standard webserver on port 443? Well, if you need to use starttls that is also available. As of OpenSSL 0.9.8 you can choose from smtp, pop3, imap, and ftp as starttls options.
 
@@ -65,8 +67,11 @@ And for those who really enjoy playing with SSL handshakes, you can even specify
 
 `openssl s_client -showcerts -cipher DHE-RSA-AES256-SHA -connect www.domain.com:443`
 
-vgl. https://langui.sh/2009/03/14/checking-a-remote-certificate-chain-with-openssl/
+*([Source](https://langui.sh/2009/03/14/checking-a-remote-certificate-chain-with-openssl/))*
 
+
+
+More: 
 
 ***
 

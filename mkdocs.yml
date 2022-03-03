@@ -68,4 +68,6 @@ extra:
 nav:
   - "Home": "index.md"
   - "Security":
-      - "SSL": "security/ssl.md"
+      - "SSL":
+        - "Troubleshooting": "security/ssl/troubleshooting.md"
+
