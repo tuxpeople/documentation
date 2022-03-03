@@ -4,13 +4,13 @@
 
 ## Public docker image
 
-- [Package peaceiris/mkdocs-material](https://github.com/peaceiris/mkdocs-material-boilerplate/pkgs/container/mkdocs-material)
+- [Package peaceiris/mkdocs-material](https://github.com/tuxpeople/documentation/pkgs/container/mkdocs-material)
 
 
 
 ## docker-compose
 
-Here is an example [docker-compose.yml](https://github.com/peaceiris/mkdocs-material-boilerplate/blob/main/docker-compose.yml)
+Here is an example [docker-compose.yml](https://github.com/tuxpeople/documentation/blob/main/docker-compose.yml)
 Please check the latest tag before you go.
 
 ```sh

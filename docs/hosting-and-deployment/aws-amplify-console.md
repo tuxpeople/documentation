@@ -1,6 +1,6 @@
 # Host on AWS Amplify Console
 
-[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/peaceiris/mkdocs-material-boilerplate)
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/tuxpeople/documentation)
 
 - [AWS Amplify Console]
 
@@ -15,4 +15,4 @@ Use the following build specification YML file.
 <!-- Internal References -->
 <!-- External References -->
 [AWS Amplify Console]: https://aws.amazon.com/amplify/console/
-[mkdocs-material-boilerplate/amplify.yml]: https://github.com/peaceiris/mkdocs-material-boilerplate/blob/main/amplify.yml
+[mkdocs-material-boilerplate/amplify.yml]: https://github.com/tuxpeople/documentation/blob/main/amplify.yml
