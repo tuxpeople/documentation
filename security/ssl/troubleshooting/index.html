@@ -428,7 +428,9 @@
 
 <h1 id="ssl_troubleshooting">SSL Troubleshooting<a class="headerlink" href="#ssl_troubleshooting" title="Permanent link">&para;</a></h1>
 <h2 id="show_certificate_for_a_host">Show certificate for a host<a class="headerlink" href="#show_certificate_for_a_host" title="Permanent link">&para;</a></h2>
-<p><code>openssl s_client -showcerts -connect www.domain.com:443</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">openssl</span> <span class="nv">s_client</span> <span class="o">-</span><span class="nv">showcerts</span> <span class="o">-</span><span class="k">connect</span> <span class="nv">www</span>.<span class="nv">domain</span>.<span class="nv">com</span>:<span class="mi">443</span>
+</code></pre></div>
+
 <p>Output:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">CONNECTED</span><span class="p">(</span><span class="mi">00000003</span><span class="p">)</span>
 <span class="o">--</span><span class="n">snip</span><span class="o">--</span>
@@ -460,7 +462,9 @@
 
 <p><em>(<a href="https://langui.sh/2009/03/14/checking-a-remote-certificate-chain-with-openssl/">Source</a>)</em></p>
 <h2 id="check_the_expiration_date_of_an_ssl_certificate">Check the expiration date of an SSL certificate<a class="headerlink" href="#check_the_expiration_date_of_an_ssl_certificate" title="Permanent link">&para;</a></h2>
-<p><code>openssl s_client -servername &lt;NAME&gt; -connect &lt;HOST:PORT&gt; 2&gt;/dev/null | openssl x509 -noout -dates</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">openssl</span> <span class="nv">s_client</span> <span class="o">-</span><span class="nv">servername</span> <span class="o">&lt;</span><span class="nv">NAME</span><span class="o">&gt;</span> <span class="o">-</span><span class="k">connect</span> <span class="o">&lt;</span><span class="nv">HOST</span>:<span class="nv">PORT</span><span class="o">&gt;</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">null</span> <span class="o">|</span> <span class="nv">openssl</span> <span class="nv">x509</span> <span class="o">-</span><span class="nv">noout</span> <span class="o">-</span><span class="nv">dates</span>
+</code></pre></div>
+
 <p>Output:</p>
 <div class="codehilite"><pre><span></span><code>$ <span class="nb">echo</span> q <span class="p">|</span> openssl s_client -showcerts -connect control.akamai.com:443 -servername control.akamai.com <span class="m">2</span>&gt;/dev/null <span class="p">|</span> openssl x509 -noout -dates
 <span class="nv">notBefore</span><span class="o">=</span>Sep <span class="m">23</span> <span class="m">00</span>:00:00 <span class="m">2021</span> GMT
@@ -470,13 +474,21 @@
 <p><em>(<a href="https://learn.akamai.com/en-us/webhelp/enterprise-application-access/enterprise-application-access/GUID-9D88336D-2733-4325-913C-916403E03D48.html">Source</a>)</em></p>
 <h2 id="some_snippets">Some snippets<a class="headerlink" href="#some_snippets" title="Permanent link">&para;</a></h2>
 <p>But what if you want to connect to something other than a bog standard webserver on port 443? Well, if you need to use starttls that is also available. As of OpenSSL 0.9.8 you can choose from smtp, pop3, imap, and ftp as starttls options.</p>
-<p><code>openssl s_client -showcerts -starttls imap -connect mail.domain.com:139</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">openssl</span> <span class="nv">s_client</span> <span class="o">-</span><span class="nv">showcerts</span> <span class="o">-</span><span class="nv">starttls</span> <span class="nv">imap</span> <span class="o">-</span><span class="k">connect</span> <span class="nv">mail</span>.<span class="nv">domain</span>.<span class="nv">com</span>:<span class="mi">139</span>
+</code></pre></div>
+
 <p>If you need to check using a specific SSL version (perhaps to verify if that method is available) you can do that as well. -ssl2, -ssl3, -tls1, and -dtls1 are all choices here.2</p>
-<p><code>openssl s_client -showcerts -ssl2 -connect www.domain.com:443</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">openssl</span> <span class="nv">s_client</span> <span class="o">-</span><span class="nv">showcerts</span> <span class="o">-</span><span class="nv">ssl2</span> <span class="o">-</span><span class="k">connect</span> <span class="nv">www</span>.<span class="nv">domain</span>.<span class="nv">com</span>:<span class="mi">443</span>
+</code></pre></div>
+
 <p>You can also present a client certificate if you are attempting to debug issues with a connection that requires one.3</p>
-<p><code>openssl s_client -showcerts -cert cert.cer -key cert.key -connect www.domain.com:443</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">openssl</span> <span class="nv">s_client</span> <span class="o">-</span><span class="nv">showcerts</span> <span class="o">-</span><span class="nv">cert</span> <span class="nv">cert</span>.<span class="nv">cer</span> <span class="o">-</span><span class="nv">key</span> <span class="nv">cert</span>.<span class="nv">key</span> <span class="o">-</span><span class="k">connect</span> <span class="nv">www</span>.<span class="nv">domain</span>.<span class="nv">com</span>:<span class="mi">443</span>
+</code></pre></div>
+
 <p>And for those who really enjoy playing with SSL handshakes, you can even specify acceptable ciphers.4</p>
-<p><code>openssl s_client -showcerts -cipher DHE-RSA-AES256-SHA -connect www.domain.com:443</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">openssl</span> <span class="nv">s_client</span> <span class="o">-</span><span class="nv">showcerts</span> <span class="o">-</span><span class="nv">cipher</span> <span class="nv">DHE</span><span class="o">-</span><span class="nv">RSA</span><span class="o">-</span><span class="nv">AES256</span><span class="o">-</span><span class="nv">SHA</span> <span class="o">-</span><span class="k">connect</span> <span class="nv">www</span>.<span class="nv">domain</span>.<span class="nv">com</span>:<span class="mi">443</span>
+</code></pre></div>
+
 <p><em>(<a href="https://langui.sh/2009/03/14/checking-a-remote-certificate-chain-with-openssl/">Source</a>)</em></p>
 <p>More: </p>
 <hr />
