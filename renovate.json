@@ -1,6 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    "config:base",
+    "config:recommended",
+    "config:best-practices",
+    "docker:enableMajor",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":enablePreCommit",
+    ":automergeDigest",
+    ":automergePr",
+    ":automergeMinor",
+    ":automergeLinters",
+    ":automergeRequireAllStatusChecks",
+    ":assignee(tuxpeople)",
+    ":automergePatch",
+    ":automergeRequireAllStatusChecks",
+    ":dependencyDashboard",
+    ":docker",
+    ":enablePreCommit",
+    ":enableVulnerabilityAlerts",
+    ":gitSignOff",
+    ":gomod",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
 }
