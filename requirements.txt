@@ -7,7 +7,7 @@
 
 -i https://pypi.org/simple/
 click==8.1.7; python_version >= '3.6'
-ghp-import==2.0.2
+ghp-import==2.1.0
 importlib-metadata==6.8.0; python_version >= '3.7'
 jinja2==3.0.3
 markdown==3.5.1; python_version >= '3.6'
