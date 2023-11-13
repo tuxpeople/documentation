@@ -23,7 +23,9 @@
     ":enableVulnerabilityAlerts",
     ":gitSignOff",
     ":gomod",
-    "helpers:pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigests",
+    "github>tuxpeople/documentation//.github/renovate/labels.json5",
+    "github>tuxpeople/documentation//.github/renovate/semanticCommits.json5"
   ],
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖"
 }
